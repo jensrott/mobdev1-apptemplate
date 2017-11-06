@@ -16,7 +16,8 @@ var App = function App() {
 
 // Arrow function, verkorte notatie van een klassieke function
 // Eerst krijgen we een error
-// We kunnen dit oplossen met het toevoegen van een .babelrc
+// We kunnen dit oplossen met het toevoegen van een .babelrc 
+// en daar zetten we in json formaat dingen in
 ;
 
 ;
