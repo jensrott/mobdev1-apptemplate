@@ -1,0 +1,26 @@
+{
+  "name": "app_template",
+  "version": "1.0.0",
+  "description": "App Template\r =================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensrott/mobdev1-apptemplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jensrott/mobdev1-apptemplate/issues"
+  },
+  "homepage": "https://github.com/jensrott/mobdev1-apptemplate#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
