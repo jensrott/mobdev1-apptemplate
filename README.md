@@ -24,6 +24,6 @@ Code template for creating a web app that we used in Mobile Development I.
 
 ---
 
-Like it? Feel free to use it or add more amazing technologies to make it even better! :blush:
+Like it? Feel free to use it or add more amazing technologies to make it even better! :blush:  
 You can do this by making a [Pull request](https://github.com/jensrott/mobdev1-apptemplate/pulls).
 
