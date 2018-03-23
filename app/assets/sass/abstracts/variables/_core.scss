@@ -1,0 +1,141 @@
+/// Development mode
+/// @group abstracts
+/// @access public
+/// @type Boolean
+$dev-mode: true !default;
+
+/// Base font Size
+/// @group abstracts
+/// @access public
+/// @type Number
+$base-font-size: 16 !default;
+
+/// Base line height
+/// @group abstracts
+/// @access public
+/// @type Number
+$base-line-height: 1.5 !default;
+
+/// Base font family
+/// @group abstracts
+/// @access public
+/// @type Number
+$base-font-family: 'Roboto', sans-serif;
+
+/// Base font weight
+/// @group abstracts
+/// @access public
+/// @type Number
+$base-font-weight: 400;
+
+/// Headings font family
+/// @group abstracts
+/// @access public
+/// @type Number
+$headings-font-family: 'Open Sans', sans-serif;
+
+/// Headings font weight
+/// @group abstracts
+/// @access public
+/// @type Number
+$headings-font-weight: 400;
+
+/// Modular Scale Ratios
+/// @group abstracts
+/// @access public
+/// @type Map
+$ms-ratios: (
+  'minor_second'  : 15/16,
+  'major_second'  : 8/9,
+  'minor_third'   : 5/6,
+  'major_third'   : 4/5,
+  'perfect_fourth': 3/4,
+  'perfect_fifth' : 2/3,
+  'minor_sixth'   : 5/8,
+  'golden_section': 1/1.618,
+  'major_sixth'   : 3/5,
+  'minor_seventh' : 9/16,
+  'major_seventh' : 8/15,
+  'octave'        : 1/2,
+  'major_tenth'   : 2/5,
+  'major_eleventh': 3/8,
+  'major_twelfth' : 1/3,
+  'octave_double' : 1/4
+) !default;
+
+/// Base modular scale ratio
+/// based on http://modularscale.com/scale/?px1=16&px2=18&ra1=1.333&ra2=0
+/// @group abstracts
+/// @access public
+/// @type Number
+$ms-ratio: map-get($ms-ratios, 'major_third') !default;
+
+/// Modular scale settings
+/// @group abstracts
+/// @access public
+/// @type Number
+$ms00 : 1 !default;
+$ms01 : 1.125 !default;
+$ms-01: ($ms01 * $ms-ratio) !default;
+$ms-02: ($ms00 * $ms-ratio) !default;
+$ms-03: ($ms-01 * $ms-ratio) !default;
+$ms02 : ($ms00 / $ms-ratio) !default;
+$ms03 : ($ms01 / $ms-ratio) !default;
+$ms04 : ($ms02 / $ms-ratio) !default;
+$ms05 : ($ms03 / $ms-ratio) !default;
+$ms06 : ($ms04 / $ms-ratio) !default;
+$ms07 : ($ms05 / $ms-ratio) !default;
+$ms08 : ($ms06 / $ms-ratio) !default;
+$ms09 : ($ms07 / $ms-ratio) !default;
+$ms10 : ($ms08 / $ms-ratio) !default;
+$ms11 : ($ms09 / $ms-ratio) !default;
+$ms12 : ($ms10 / $ms-ratio) !default;
+$ms13 : ($ms11 / $ms-ratio) !default;
+
+/// Modular scales
+/// @group abstracts
+/// @access public
+/// @type Number
+$modular-scales: (
+  -3: $ms-03,
+  -2: $ms-02,
+  -1: $ms-01,
+  0: $ms00,
+  1: $ms01,
+  2: $ms02,
+  3: $ms03,
+  4: $ms04,
+  5: $ms05,
+  6: $ms06,
+  7: $ms07,
+  8: $ms08,
+  9: $ms09,
+  10: $ms10,
+  11: $ms11,
+  12: $ms12,
+  13: $ms13
+);
+
+/// Line heights vertical rhythm
+/// @group abstracts
+/// @access public
+/// @type Number
+$line-heights: (
+  -3: $base-line-height  * 0.5,
+  -2: $base-line-height * 0.75,
+  -1: $base-line-height * 0.75,
+  0: $base-line-height * 2,
+  1: $base-line-height * 2,
+  2: $base-line-height * 2,
+  3: $base-line-height * 1.33333,
+  4: $base-line-height * 1.33333,
+  5: $base-line-height * 2,
+  6: $base-line-height * 2,
+  7: $base-line-height * 2,
+  8: $base-line-height * 2,
+  9: $base-line-height * 2,
+  10: $base-line-height * 2,
+  11: $base-line-height * 2,
+  12: $base-line-height * 2,
+  13: $base-line-height * 2,
+);

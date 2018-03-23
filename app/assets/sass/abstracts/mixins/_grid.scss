@@ -1,0 +1,100 @@
+@mixin fb-grid-container() {
+  max-width: 1140px;
+  padding-left: ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin fb-grid-row() {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-right: -($grid-gutter-width / 2);
+  margin-left: -($grid-gutter-width / 2);
+}
+
+@mixin fb-grid-column($size, $columns-amount: $grid-columns-amount) {
+  $percentage: #{($size/$columns-amount)*100%};
+
+  flex: 0 0 $percentage;
+  max-width: $percentage;
+}
+
+@mixin fb-grid-column-offset($size, $columns-amount: $grid-columns-amount) {
+  $num: $size / $columns-amount;
+
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin make-fb-grid-container() {
+  #{grid-selector('container')} {
+    @include fb-grid-container();
+  }
+}
+
+@mixin make-fb-grid-row() {
+  #{grid-selector('row')} {
+    @include fb-grid-row();
+  }
+}
+
+@mixin make-fb-grid-row-margin($gutter-width: $grid-gutter-width) {
+  #{grid-selector('container')} > #{grid-selector('row')} {
+    margin-top: $gutter-width;
+  }
+}
+
+@mixin make-fb-grid-columns-for-breakpoint($breakpoint-key, $breakpoint-val, $columns-amount: $grid-columns-amount, $gutter-width: $grid-gutter-width) {
+  $breakpoint-key-fix: if($breakpoint-key != 0, '-#{$breakpoint-key}', '');
+
+  @for $i from 1 through $columns-amount {
+    #{grid-selector('column')}#{$breakpoint-key-fix}-#{$i} {
+      flex-basis: #{($i/$columns-amount)*100%};
+      max-width: #{($i/$columns-amount)*100%};
+    }
+  }
+}
+
+@mixin make-fb-grid-columns-offset-for-breakpoint($breakpoint-key, $breakpoint-val, $columns-amount: $grid-columns-amount, $gutter-width: $grid-gutter-width) {
+  $breakpoint-key-fix: if($breakpoint-key != 0, '-#{$breakpoint-key}', '');
+
+  @for $i from 1 through $columns-amount {
+    #{grid-selector('offset')}#{$breakpoint-key-fix}-#{$i} {
+      margin-left: #{($i/$columns-amount)*100%};
+    }
+  }
+}
+
+@mixin make-fb-grid-columns($columns-amount: $grid-columns-amount, $gutter-width: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  %grid-column {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: ($gutter-width / 2);
+    padding-left: ($gutter-width / 2);
+
+    @include fb-grid-column(12, $columns-amount);
+  }
+
+  $list: '';
+
+  @for $i from 1 through $columns-amount {
+    $list: if($i == 1, '#{$list}', '#{$list}, ') + '#{grid-selector('column')}-#{$i}';
+  }
+
+  #{$list} {
+    @extend %grid-column;
+  }
+
+  @each $breakpoint-key, $breakpoint-val in $breakpoints {
+    @media (min-width: $breakpoint-val) {
+      @include make-fb-grid-columns-for-breakpoint(0, 0, $columns-amount, $gutter-width);
+      @include make-fb-grid-columns-for-breakpoint($breakpoint-key, $breakpoint-val, $columns-amount, $gutter-width);
+      @include make-fb-grid-columns-offset-for-breakpoint($breakpoint-key, $breakpoint-val, $columns-amount, $gutter-width);
+    }
+  }
+}

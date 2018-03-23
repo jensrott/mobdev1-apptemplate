@@ -1,0 +1,38 @@
+body {
+  font-family: $base-font-family;
+  font-size: #{$base-font-size}px;
+  line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headings-font-family;
+
+  @include type-setting(1);
+
+  margin: #{$base-line-height}rem 0;
+}
+
+h1 {
+  @include type-setting(6);
+}
+
+h2 {
+  @include type-setting(5);
+}
+
+h3 {
+  @include type-setting(4);
+}
+
+h4 {
+  @include type-setting(3);
+}
+
+h5 {
+  @include type-setting(2);
+}

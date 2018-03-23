@@ -1,0 +1,17 @@
+@startuml
+skinparam monochrome true
+
+class Person {
+ +firstName: String
+ +surName: String
+ +toString(): String
+}
+
+class Student {
+ +StudentNr: String
+ +emailSchool: String
+ +toString(): String
+}
+
+Person <|-- Student
+@enduml

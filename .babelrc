@@ -1,8 +1,8 @@
 {
-    "presets": ["env"],
+    "presets": ["env", "stage-0"],
     "plugins": [
-        // Moeten we dan nog de dependencie toevoegen
-        // Het bestaat niet in de taal dus we voegen een plugin toe
-       "transform-class-properties" 
-    ]
+        "transform-class-properties",
+        "transform-runtime"
+    ],
+    "retainLines": true
 }

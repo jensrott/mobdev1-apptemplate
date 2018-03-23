@@ -1,0 +1,4 @@
+@mixin type-setting($level: 0) {
+  font-size: modular-scale($level);
+  line-height: line-height($level);
+}

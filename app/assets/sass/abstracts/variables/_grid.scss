@@ -1,0 +1,35 @@
+/// Grid prefix names
+/// @group grid
+/// @access public
+/// @type Map
+$grid-prefix-names: (
+  'container': '.fb-grid__container',
+  'row': '.fb-grid__row',
+  'column': '.fb-grid__col',
+  'offset': '.fb-grid__col-offset',
+  'order': '.fb-grid__col-order'
+);
+
+/// Breakpoints for grid
+/// @group grid
+/// @access public
+/// @type Map
+$grid-breakpoints: (
+  'xs': 320 / $base-font-size * 1rem,
+  'sm': 480 / $base-font-size * 1rem,
+  'md': 768 / $base-font-size * 1rem,
+  'lg': 960 / $base-font-size * 1rem,
+  'xl': 1140 / $base-font-size * 1rem,
+);
+
+/// Gutter width for the grid
+/// @group grid
+/// @access public
+/// @type Number
+$grid-gutter-width: 1rem !default;
+
+/// Amount of cuolumns in the grid system
+/// @group grid
+/// @access public
+/// @type Number
+$grid-columns-amount: 12 !default;
